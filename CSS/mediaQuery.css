@@ -329,3 +329,25 @@
         font-size: 0.9rem;
     }
 }
+
+
+/* Custom Some Responsive all website */
+
+@media (min-width: 770px) and (max-width: 1250px) {
+    .woodDoorImage img{
+        height: 60vh;
+        width: 100%;
+    }
+}
+/* Footer */
+@media (min-width: 770px) and (max-width: 1250px) {
+    footer .applications {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    footer .applications img {
+        width: 80%;
+    }
+}
+
