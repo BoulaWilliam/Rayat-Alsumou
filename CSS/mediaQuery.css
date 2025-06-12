@@ -333,25 +333,6 @@
 
 /* Custom Some Responsive all website */
 
-@media (max-width: 992px) {
-    .door-hero,.woodDoorImage {
-        height: 80vh; 
-    }
-}
-
-@media (max-width: 768px) {
-    .door-hero,.woodDoorImage {
-        height: 70vh; 
-    }
-}
-
-@media (max-width: 576px) {
-    .door-hero,.woodDoorImage {
-
-        height: 60vh; 
-    }
-}
-
 /* Footer */
 @media (min-width: 770px) and (max-width: 1250px) {
     footer .applications {
