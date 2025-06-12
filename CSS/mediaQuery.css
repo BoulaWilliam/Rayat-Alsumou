@@ -1,0 +1,331 @@
+/* Responsive adjustments for Home Section */
+/* For screens smaller than 992px (e.g., Tablets and smaller laptops) */
+@media (max-width: 992px) {
+    .hero-section {
+        margin-top: 6rem; 
+    }
+}
+@media (max-width: 768px) {
+    .hero-section {
+        margin-top: 5rem; 
+    }
+    .hero-section__logo {
+        max-width: 180px; 
+    }
+
+    .hero-section__text {
+        font-size: clamp(1.5rem, 6vw, 2.5rem); 
+    }
+
+    .hero-section__button {
+        font-size: clamp(0.9rem, 3.5vw, 1.5rem); 
+        padding: clamp(0.8rem, 3vw, 2rem) clamp(1.5rem, 6vw, 4rem);
+    }
+}
+
+/* For screens smaller than 576px (e.g., most mobile phones) */
+@media (max-width: 576px) {
+    .hero-section {
+        margin-top: 4rem; /* More reduction for very small screens */
+    }
+
+    .hero-section__logo {
+        max-width: 150px; 
+        width: 50vw; 
+    }
+
+    .hero-section__text {
+        font-size: clamp(1.2rem, 5vw, 1.8rem); 
+        padding: 0 0.5rem; 
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-section__button {
+        font-size: 2rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-section__title {
+        font-size: 2rem;
+    }
+
+    .about-us-section__text {
+        font-size: 1.125rem;
+    }
+
+    .about-us-section__content-box {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-us-section__content-box {
+        padding: 1rem 1.5rem;
+    }
+
+    .about-us-section__title {
+        font-size: 1.8rem;
+    }
+
+    .about-us-section__text {
+        font-size: 1rem;
+    }
+}
+
+
+/* Responsive adjustments for Info Cards */
+@media (max-width: 992px) {
+    .info-card__icon-badge {
+        font-size: 24px;
+        padding: 25px 40px;
+        top: -50px;
+    }
+
+    .info-card__icon-badge i {
+        font-size: 3rem;
+    }
+
+    .info-card__title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-card {
+        min-height: auto;
+        padding-bottom: 1.5rem;
+    }
+
+    .info-card__icon-badge {
+        font-size: 20px;
+        padding: 20px 30px;
+        top: -40px;
+    }
+
+    .info-card__icon-badge i {
+        font-size: 2.5rem;
+    }
+
+    .info-card__title {
+        font-size: 1.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .info-card__text {
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+}
+
+/* Make The Images Smaller */
+@media (max-width: 575.98px) {
+    .service-item img {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+/* Responsive adjustments for Wooden Cabins Banner */
+@media (max-width: 992px) {
+    .wooden-doors-section__heading {
+        font-size: 4rem;
+    }
+
+    .wooden-doors-section__description {
+        font-size: 2.5rem;
+    }
+
+    .wooden-doors-section__button {
+        font-size: 1.2rem;
+        padding: 1.2rem 2rem;
+    }
+
+    .wooden-doors-section__content {
+        left: 5%;
+        top: 15%;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .woodDoorImage {
+        justify-content: center;
+        text-align: center;
+        height: 60vh;
+    }
+
+    .wooden-doors-section__content {
+        position: static;
+        width: 100%;
+        left: auto;
+        top: auto;
+        transform: none;
+        align-items: center;
+        text-align: center;
+    }
+
+    .wooden-doors-section__heading {
+        font-size: 3rem;
+    }
+
+    .wooden-doors-section__description {
+        font-size: 2rem;
+    }
+
+    .wooden-doors-section__button {
+        font-size: 1rem;
+        padding: 1rem 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .woodDoorImage {
+        height: 50vh;
+    }
+
+    .wooden-doors-section__heading {
+        font-size: 2.2rem;
+    }
+
+    .wooden-doors-section__description {
+        font-size: 1.5rem;
+    }
+
+    .wooden-doors-section__button {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+
+/* Responsive adjustments for Wooden Doors Hero */
+@media (max-width: 992px) {
+    .door-hero__heading {
+        font-size: 4rem;
+    }
+
+    .door-hero__description {
+        font-size: 1.8rem;
+        padding: 2.5rem 3.5rem;
+    }
+
+    .door-hero__button {
+        padding: 1.2rem 4rem;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .door-hero__content {
+        margin-top: 5rem;
+    }
+
+    .door-hero__heading {
+        font-size: 2.2em;
+        margin-top: 8rem;
+        /* Adjusted to visually offset header */
+    }
+
+    .door-hero__description {
+        margin: 10px 0;
+        font-size: 1.2em;
+        padding: 1.5rem 2rem;
+    }
+
+    .door-hero__button {
+        padding: 1rem 3rem;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .door-hero {
+        height: 60vh;
+        /* Adjust height for smaller screens */
+    }
+
+    .door-hero__heading {
+        font-size: 1.8em;
+        margin-top: 6rem;
+    }
+
+    .door-hero__description {
+        font-size: 1em;
+        padding: 1rem 1.5rem;
+    }
+
+    .door-hero__button {
+        padding: 0.8rem 2.5rem;
+        font-size: 0.9em;
+    }
+}
+
+/* Responsive adjustments for Value Cards */
+@media (max-width: 768px) {
+    .value-card {
+        padding: 2rem 0.8rem;
+    }
+
+    .value-card__icon {
+        font-size: 1.8rem;
+    }
+
+    .value-card__text {
+        font-size: 1.3rem;
+    }
+
+    .value-card__divider {
+        height: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .value-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .value-card__icon {
+        margin-inline-end: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .value-card__divider {
+        display: none;
+        /* Hide divider on very small screens */
+    }
+}
+
+/* Responsive adjustments for Location Section */
+@media (max-width: 768px) {
+    .location-section__map-embed {
+        height: 25rem;
+    }
+
+    .location-section__content-box {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .location-section__map-embed {
+        height: 20rem;
+    }
+
+    .location-section__content-box {
+        padding: 1rem;
+    }
+
+    .location-section__title {
+        font-size: 1.3rem;
+    }
+
+    .location-section__subtitle {
+        font-size: 0.9rem;
+    }
+}

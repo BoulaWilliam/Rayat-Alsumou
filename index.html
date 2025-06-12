@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راية السمو</title>
+
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/mediaQuery.css">
+</head>
+
+<body>
+
+    <div class="loading-screen" id="loadingScreen">
+        <img src="img/logo-removebg-preview.png" alt="Loading" class="loading-screen__logo">
+    </div>
+    <header id="mainHeader" class="main-header">
+        <div class="main-header__container container">
+
+            <div class="main-header__left-side">
+                <a class="main-header__menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                    <span class="me-2">القائمة</span>
+                </a>
+                <i class="fas fa-search main-header__search-btn" onclick="toggleSearch()"></i>
+            </div>
+
+            <a class="main-header__logo-link" href="#">
+                <img src="img/logo-removebg-preview.png" alt="لوجو راية السمو">
+            </a>
+
+            <div class="main-header__right-side">
+                <i class="fas fa-user main-header__user-btn" onclick="toggleLogin()"></i>
+                <i class="fas fa-shopping-cart main-header__cart-btn"></i>
+            </div>
+        </div>
+
+        <nav id="menu" class="side-nav">
+            <button class="side-nav__close-btn" onclick="toggleMenu()">×</button>
+            <ul class="side-nav__list">
+                <li class="side-nav__item"><a href="#home" class="side-nav__link">الرئيسية</a></li>
+                <li class="side-nav__item"><a href="#about" class="side-nav__link">من نحن</a></li>
+                <li class="side-nav__item"><a href="#services" class="side-nav__link">خدماتنا</a></li>
+                <li class="side-nav__item"><a href="#features" class="side-nav__link">اعمالنا</a></li>
+                <li class="side-nav__item"><a href="#contact" class="side-nav__link">تواصل معنا</a></li>
+            </ul>
+        </nav>
+
+        <div id="overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+        <div id="loginOverlay" class="login-popup">
+            <div class="login-popup__box">
+                <a class="login-popup__close-btn" onclick="toggleLogin()">×</a>
+
+                <div class="login-popup__header">
+                    <i class="fa fa-user login-popup__icon"></i>
+                    <h2 class="login-popup__title">تسجيل الدخول</h2>
+                </div>
+
+                <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" class="login-popup__input" />
+                <p id="emailError" class="login-popup__error-msg">يرجى إدخال البريد الإلكتروني</p>
+
+                <input type="password" id="loginPassword" placeholder="كلمة المرور" class="login-popup__input" />
+                <p id="passwordError" class="login-popup__error-msg">يرجى إدخال كلمة المرور</p>
+                <button onclick="validateLogin()" class="login-popup__submit-btn">دخول</button>
+            </div>
+        </div>
+
+        <div id="searchOverlay" class="search-popup">
+            <div class="search-popup__box">
+                <h2 class="search-popup__title">ما الذى تبحث عنه ؟</h2>
+                <button class="search-popup__close-btn" onclick="toggleSearch()">×</button>
+                <input type="text" placeholder="ابحث هنا..." class="search-popup__input" />
+            </div>
+        </div>
+
+    </header>
+    <section id="home" class="hero-section">
+        <img src="img/logo-removebg-preview.png" alt="Raya Logo" class="hero-section__logo animate__animated animate__fadeInDown" />
+
+        <p class="hero-section__text animate__animated animate__fadeInUp">
+            نرفع راية الفخامة<br>
+            في كل مشروع
+        </p>
+
+        <a href="#contact" class="hero-section__button animate__animated animate__zoomIn">تواصل معنا</a>
+    </section>
+    <section id="about" class="about-us-section">
+
+        <div class="container about-us-section__intro">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <div class="about-us-section__content-box">
+                        <h2 class="about-us-section__title animate__animated">من نحن؟</h2>
+                        <p class="about-us-section__text animate__animated">
+                            في راية السمو، نجسد معنى التميز في كل تفصيلة.<br>
+                            نننفذ مشاريعنا بأعلى معايير الجودة العالمية،<br>
+                            ونلتزم بالدقة في المواعيد... لأن الثقة تبدأ من الوفاء بالوعد.<br>
+                            نسعى لأن تكون كل تجربة معنا انعكاساً للفخامة...<br>
+                            وكل مشروع بصمة من بصمات السمو
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container about-us-section__cards-grid">
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-6 col-lg-5 col-12">
+                    <div class="info-card animate__animated">
+                        <div class="info-card__icon-badge">
+                            <i class="fa fa-eye"></i>
+                        </div>
+                        <h2 class="info-card__title">رؤيتنا</h2>
+                        <p class="info-card__text">
+                            رفع معيار الجودة في خدماتنا لنيل رضا عملائنا بتطوير مستمر ينطلق من قيمنا ومبادئنا مع
+                            المشاركة الفعالة في الإنجازات الرائدة التي حققها ولا يزال يحققها الاقتصاد السعودي.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-5 col-12">
+                    <div class="info-card animate__animated">
+                        <div class="info-card__icon-badge">
+                            <i class="fa fa-message"></i>
+                        </div>
+                        <h2 class="info-card__title">رسالتنا</h2>
+                        <p class="info-card__text">
+                            المساهمة في تحقيق رؤية المملكة 2030 لتلبية احتياجات السوق العقاري، وذلك بتقديم مشاريع سكنية
+                            نوعية تحقق جودة الحياة بتصاميم عصرية تواكب تطلعات المستفيد بأسعار تنافسية من خلال فريق من
+                            ذوي الخبرة والكفاءة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="services-section">
+        <img src="img/ServicesBanner.png" alt="Services Banner Image" class="services-section__banner-img animate__animated animate__fadeIn">
+
+        <div class="container services-section__cards-grid">
+            <div class="row justify-content-center g-4">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="service-item animate__animated">
+                        <img src="img/service1.png" alt="Finishing Works" class="service-item__img">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="service-item animate__animated">
+                        <img src="img/service2.png" alt="Maintenance and Renovation" class="service-item__img">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="service-item animate__animated">
+                        <img src="img/service3.png" alt="Building and Construction" class="service-item__img">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="service-item animate__animated">
+                        <img src="img/service4.png" alt="Supervision of Works" class="service-item__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="wooden-doors" class="wooden-doors-section">
+
+        <div class="woodDoorImage" dir="rtl">
+            <div class="container-fluid">
+                <div class="row w-100">
+                    <div class="col-lg-6 col-md-7 col-sm-12 center text-center wooden-doors-section__text-col">
+                        <div class="wooden-doors-section__content center text-center">
+                            <h2 class="wooden-doors-section__heading animate__animated">أكواخ خشبية</h2>
+                            <p class="wooden-doors-section__description animate__animated">
+                                بمساحات متنوعة تناسب <br> استجمامك أو استثمارك
+                            </p>
+                            <a href="#contact" class="wooden-doors-section__button animate__animated">
+                                تواصل معنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container wooden-doors-section__features-grid">
+            <div class="row justify-content-center g-4">
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="feature-card animate__animated">
+                        <i class="fa fa-pencil-alt feature-card__icon"></i>
+                        <div class="feature-card__bottom-content">
+                            <span class="feature-card__text">تصميم</span>
+                            <a class="feature-card__arrow-circle">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="feature-card animate__animated">
+                        <i class="fa-solid fa-gears feature-card__icon"></i>
+                        <div class="feature-card__bottom-content">
+                            <span class="feature-card__text">تنفيذ</span>
+                            <a class="feature-card__arrow-circle">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="feature-card animate__animated">
+                        <i class="fa-solid fa-medal feature-card__icon"></i>
+                        <div class="feature-card__bottom-content">
+                            <span class="feature-card__text">جودة</span>
+                            <a class="feature-card__arrow-circle">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="feature-card animate__animated">
+                        <i class="fa-solid fa-shield feature-card__icon"></i>
+                        <div class="feature-card__bottom-content">
+                            <span class="feature-card__text">ضمان</span>
+                            <a class="feature-card__arrow-circle">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="door-hero">
+                <div class="door-hero__content ">
+                    <h2 class="door-hero__heading animate__animated">الأبواب الخشبية</h2>
+                    <p class="door-hero__description animate__animated">
+                        أبواب خشبية مقاومة. عزل مثالي. <br> ومظهر يخطف الأنظار
+                    </p>
+                    <a href="#contact" class="door-hero__button animate__animated">اطلبه الآن</a>
+                </div>
+            </div>
+        </div>>
+
+    </section>
+    <section id="gallery" class="gallery-section">
+        <img src="img/featureBanner.png" alt="Gallery Banner Image" class="gallery-section__banner-img animate__animated animate__fadeIn">
+
+        <div class="container gallery-section__grid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <img src="img/F1.png" alt="Gallery Item One" class="gallery-section__img animate__animated">
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <img src="img/F2.png" alt="Gallery Item Two" class="gallery-section__img animate__animated">
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <img src="img/F3.png" alt="Gallery Item Three" class="gallery-section__img animate__animated">
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <img src="img/F4.png" alt="Gallery Item Four" class="gallery-section__img animate__animated">
+                </div>
+            </div>
+
+            <div class="container gallery-section__values-grid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-4">
+                        <div class="value-card animate__animated">
+                            <i class="fa fa-rocket value-card__icon"></i>
+                            <div class="value-card__divider"></div>
+                            <div class="value-card__text">سرعة التنفيذ</div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="value-card animate__animated">
+                            <i class="fa fa-cubes value-card__icon"></i>
+                            <div class="value-card__divider"></div>
+                            <div class="value-card__text">خدمات متكاملة</div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="value-card animate__animated">
+                            <i class="fa fa-tags value-card__icon"></i>
+                            <div class="value-card__divider"></div>
+                            <div class="value-card__text">سعر مميز</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="location" class="location-section">
+        <div class="container location-section__content-box">
+            <h3 class="location-section__title animate__animated">راية السمو</h3>
+            <p class="location-section__subtitle animate__animated">طريق الامير ماجد - مركز الكندري للاعمال</p>
+            <div class="location-section__map-link-container">
+                <a class="location-section__map-link animate__animated" aria-label="راية السمو"
+                    href="https://www.google.com/maps/place/21%C2%B037%2718.0%22N+39%C2%B011%2708.7%22E/@21.6216969,39.2042101,14.84z/data=!4m4!3m3!1s0x0:0x0!2zMjHCsDM3JzE4LjAiTiAzOcKwMTEnMDguNyJF!5e0!3m2!1sar!2ssa!4v1728313575577!5m2!1sar!2ssa"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-location-dot"></i> <span>راية السمو</span>
+                </a>
+            </div>
+
+            <div class="location-section__map-embed animate__animated">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d14836.331203004078!2d39.20421010132895!3d21.62169693037039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDM3JzE4LjAiTiAzOcKwMTEnMDguNyJF!5e0!3m2!1sar!2ssa!4v1728313575577!5m2!1sar!2ssa"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+    <footer class="pt-4 footer text-white" id="contact">
+        <div class="container">
+
+            <div class="row align-items-center border-bottom pb-3 text-center text-md-start">
+                <div
+                    class="col-md-8 col-12 d-flex flex-md-row flex-column justify-content-start align-items-start align-items-md-center gap-3">
+
+                    <div class="d-flex flex-column w-75 gap-2 mx-auto text-center text-lg-start">
+                        <p class="fw-bold fs-4 w-100 mb-1 text-md-end animate__animated">كن أول من يعرف!</p>
+                        <p class="mb-2 text-end animate__animated">اشترك بنشرتنا البريدية ليصلك كل جديد.</p>
+                    </div>
+
+
+                    <div class="d-flex w-100 justify-content-center justify-content-md-start ">
+                        <input type="email" class="p-2 w-50 rounded-0 border animate__animated" placeholder="ادخل البريد الإلكتروني">
+                        <a href="mailto:boulawillliam@gmail.com"
+                            class="subscribeBtn center px-3 rounded-0 rounded-start animate__animated">اشترك</a>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 mt-4 mt-md-0">
+                    <h3 class="mb-4 socialTitle animate__animated">تابع راية السمو </h3>
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3 fs-5 social-icons">
+                        <a href="https://www.facebook.com/rayatalsumou" target="_blank" class=" social-icon animate__animated"
+                            data-title="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@rayatalsumou" target="_blank" class=" social-icon animate__animated"
+                            data-title="تيك توك">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.snapchat.com/add/rayatalsumou" target="_blank" class=" social-icon animate__animated"
+                            data-title="سناب شات">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                        <a href="https://x.com/rayatalsumou" target="_blank" class=" social-icon animate__animated" data-title="إكس">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/rayatalsumou/#" target="_blank" class=" social-icon animate__animated"
+                            data-title="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center text-md-start py-4">
+                <div class="col-md-3 mb-4 mb-md-0 d-flex text-center flex-column ">
+                    <div class="footerImage ">
+                        <img src="img/logo-removebg-preview.png" class="img-fluid animate__animated" alt="">
+                    </div>
+                    <p class="animate__animated"> راية السمو للتطوير العقاري</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 flex-column center">
+                    <h5 class=" mb-3 ms-3 animate__animated">روابط تهمك</h5>
+                    <ul class="ourLinks list-unstyled ourLinks small text-end">
+                        <li class="mb-3 animate__animated"><a href="#about" class="text-white text-decoration-none">من نحن</a></li>
+                        <li class="my-3 animate__animated"><a href="#" class="text-white text-decoration-none">سياسة الخصوصية</a></li>
+                        <li class="my-3 animate__animated"><a href="#" class="text-white text-decoration-none">مشروع الريان</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4 mb-md-0 flex-column ">
+                    <h5 class=" mb-3 text-md-end animate__animated">خدمة العملاء</h5>
+                    <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                        <button class="btn btn-outline-light customer rounded-1 px-3 py-2 animate__animated"><i
+                                class="fas fa-envelope"></i>
+                            إيميل</button>
+                        <button class="btn btn-outline-light customer rounded-1 px-3 py-2 animate__animated"><i class="fas fa-phone"></i>
+                            هاتف</button>
+                    </div>
+                </div>
+
+                <div class="col-md-3 flex-column ">
+                    <h5 class=" mb-3 text-md-end animate__animated">تطبيق راية السمو</h5>
+                    <div class="d-flex gap-2 mb-2 justify-content-center justify-content-md-start">
+                        <img src="img/appstore.webp" alt="App Store" style="height:40px;" class="animate__animated">
+                        <img src="img/googleplay.webp" alt="Google Play" style="height:40px;" class="animate__animated">
+
+                    </div>
+                    <div class="center text-end mt-2">
+                        <img src="img/tax.webp" alt="VAT" style="height:50px;" class="animate__animated">
+
+                        <p class="mb-1 me-3 small animate__animated">الرقم الضريبي<br>312530375100003</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="d-flex flex-column py-3 gap-3 flex-md-row justify-content-between align-items-center border-top pt-3">
+
+                <div class="d-flex align-items-center gap-2">
+                    <img src="img/sbc.webp" class="bg-white rounded-1 animate__animated" alt="Verified" style="height:35px;">
+                    <span class="small animate__animated">موثّق في منصة الأعمال</span>
+                </div>
+
+                <div class="payment d-flex flex-wrap gap-2 mb-3 mb-md-0 ">
+                    <img src="img/mada.webp" alt="Mada" style="height:30px;" class="animate__animated">
+                    <img src="img/mastercard.webp" alt="MasterCard" style="height:30px;" class="animate__animated">
+                    <img src="img/bank.webp" alt="Bank Transfer" style="height:30px;" class="animate__animated">
+                    <img src="img/apple_pay.webp" alt="Apple Pay" style="height:30px;" class="animate__animated">
+                    <img src="img/google_pay.webp" alt="Google Pay" style="height:30px;" class="animate__animated">
+                </div>
+
+                <div class="copyRights ">
+                    <a href="#home">
+
+                        الحقوق محفوظة | راية السمو © 2025
+                    </a>
+                </div>
+
+            </div>
+
+
+        </div>
+    </footer>
+    <div class="scroll-to-top " id="scrollToTopBtn">
+        <i class="fa fa-arrow-up center"></i>
+    </div>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="JS/index.js"></script>
+</body>
+
+</html>
