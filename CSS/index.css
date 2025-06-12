@@ -5,7 +5,6 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
-    box-sizing: border-box;
 }
 
 :root {
@@ -469,12 +468,17 @@ body {
 /* Info Cards (Vision & Mission) */
 .info-card {
     position: relative;
+    margin-top: 1.5rem;
     border-radius: 30px;
     padding: 2rem;
     box-shadow: 0 10px 20px var(--shadow-medium);
     min-height: 300px;
     transition: transform 0.3s ease;
     user-select: none;
+}
+
+.vision {
+    padding-bottom: 4rem;
 }
 
 .info-card:hover {
@@ -990,6 +994,7 @@ footer h5 {
     font-weight: 600;
 }
 
+footer .applications 
 .socialTitle {
     color: var(--gold-darker);
     display: none;
