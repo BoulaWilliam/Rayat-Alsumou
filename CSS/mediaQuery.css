@@ -332,10 +332,14 @@
 
 
 /* Custom Some Responsive all website */
-
 @media (min-width: 770px) and (max-width: 1250px) {
-    .woodDoorImage img{
-        height: 60vh;
+    .woodDoorImage {
+        height: 40vh;
+        width: 100%;
+    }
+
+    .door-hero {
+        height: 40vh;
         width: 100%;
     }
 }
