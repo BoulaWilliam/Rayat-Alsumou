@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cairo:wght@200..1000&family=DM+Serif+Display:ital@0;1&family=Inter:wght@100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@
     list-style: none;
 }
 
+/* CSS Variables */
 :root {
     --secondary-color: #fff;
     --primary-color: #c9a664;
@@ -23,24 +25,27 @@
     --shadow-card-light: rgba(255, 255, 255, 0.05);
 }
 
+/* Base Link Styling */
 a {
     text-decoration: none;
     color: var(--secondary-color);
 }
 
+/* Center Utility Class */
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Body Styling */
 body {
     font-family: 'Cairo', sans-serif;
     background: var(--light-neutral);
     margin: 0;
     padding: 0;
-    direction: rtl;
-    overflow-x: hidden;
+    direction: rtl; /* Right-to-Left for Arabic content */
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
 }
 
 /* ------------------------------------ */
@@ -52,7 +57,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 9999; /* Ensures it's on top */
     background-color: var(--secondary-color);
     display: flex;
     justify-content: center;
@@ -61,7 +66,7 @@ body {
 
 .loading-screen__logo {
     width: 100px;
-    animation: pulse 1.5s infinite;
+    animation: pulse 1.5s infinite; /* Pulsing animation for the logo */
 }
 
 @keyframes pulse {
@@ -69,12 +74,10 @@ body {
         transform: scale(1);
         opacity: 0.8;
     }
-
     50% {
         transform: scale(1.1);
         opacity: 1;
     }
-
     100% {
         transform: scale(1);
         opacity: 0.8;
@@ -162,18 +165,18 @@ body {
 .side-nav {
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -250px; /* Initially hidden off-screen */
     width: 250px;
     height: 100%;
     background-color: var(--secondary-color);
     box-shadow: -2px 0 5px var(--shadow-light);
     transition: right 0.3s ease-in-out;
     padding: 2rem 1rem;
-    z-index: 1050;
+    z-index: 1050; /* Above header but below popups */
 }
 
 .side-nav.open {
-    right: 0;
+    right: 0; /* Slide in when 'open' class is added */
 }
 
 .side-nav__close-btn {
@@ -213,7 +216,7 @@ body {
     content: '';
     position: absolute;
     bottom: -5px;
-    right: 0;
+    right: 0; /* For RTL underline effect */
     width: 0%;
     height: 3px;
     background: var(--primary-color);
@@ -225,10 +228,10 @@ body {
 }
 
 .side-nav__link:hover::after {
-    width: 100%;
+    width: 100%; /* Expands on hover */
 }
 
-/* Overlay for popups */
+/* Overlay for Popups (Menu, Login, Search) */
 .menu-overlay,
 .login-popup,
 .search-popup {
@@ -237,24 +240,23 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1049;
-    /* Below side-nav */
-    display: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1049; /* Below side-nav for menu overlay, above for popups */
+    display: none; /* Hidden by default */
     justify-content: center;
     align-items: center;
 }
 
 .login-popup,
 .search-popup {
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1060;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for popups */
+    z-index: 1060; /* Higher z-index for popups */
 }
 
 .menu-overlay.show,
 .login-popup.show,
 .search-popup.show {
-    display: flex;
+    display: flex; /* Show when 'show' class is added */
 }
 
 /* Login Popup */
@@ -332,7 +334,7 @@ body {
     color: red;
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    display: none;
+    display: none; /* Hidden by default */
 }
 
 /* Search Popup */
@@ -384,13 +386,13 @@ body {
 .hero-section {
     background-image: url(../img/home_cleanup.png);
     background-position: center;
-    background-size: cover;
+    background-size: cover; /* Ensures image covers the area, scaling responsively */
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 8rem;
+    margin-top: 8rem; /* Space for fixed header */
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -429,7 +431,7 @@ body {
 .about-us-section {
     background-image: url(../img/About\ Us_cleanup.png);
     background-position: center;
-    background-size: cover;
+    background-size: cover; /* Ensures image covers the area */
     background-repeat: no-repeat;
     width: 100%;
     padding-top: 2rem;
@@ -445,7 +447,7 @@ body {
     box-shadow: 0 10px 20px var(--shadow-medium);
     border: 1px solid #ccc;
     user-select: none;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px); /* Blurs content behind */
 }
 
 .about-us-section__title {
@@ -462,8 +464,6 @@ body {
     line-height: 2;
     text-align: center;
 }
-
-/* Responsive adjustments for About Us Intro */
 
 /* Info Cards (Vision & Mission) */
 .info-card {
@@ -519,14 +519,12 @@ body {
     line-height: 2;
 }
 
-
 /* ------------------------------------ */
 /* Our Services Section Styles          */
 /* ------------------------------------ */
 .services-section {
     text-align: center;
     padding-top: 2rem;
-
 }
 
 .services-section__banner-img {
@@ -550,9 +548,6 @@ body {
     transform: scale(1.085);
 }
 
-
-
-
 /* ------------------------------------ */
 /* Wooden Doors Section Styles          */
 /* ------------------------------------ */
@@ -562,7 +557,7 @@ body {
     background-image: url(../img/Wooden_cleanup.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; /* Ensures image covers the area */
     height: 100vh;
     position: relative;
 }
@@ -574,18 +569,15 @@ body {
 }
 
 .feature-card {
-    background: linear-gradient(145deg, #c1a66a, #eadcbf);
-    /* Gradient for a gold effect */
+    background: linear-gradient(145deg, #c1a66a, #eadcbf); /* Gradient for a gold effect */
     border-radius: 22px;
     box-shadow: 8px 8px 16px var(--shadow-medium), -4px -4px 10px var(--shadow-card-light);
     padding: 40px 20px;
-    height: 180px;
-    /* Fixed height for consistency */
+    height: 180px; /* Fixed height for consistency */
     position: relative;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    display: flex;
-    /* Added flex for alignment */
+    display: flex; /* Added flex for alignment */
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -599,8 +591,7 @@ body {
 
 .feature-card__icon {
     font-size: 3rem;
-    color: #666;
-    /* Greyish color for icons */
+    color: #666; /* Greyish color for icons */
     opacity: 0.9;
     transition: color 0.3s;
     margin-bottom: 1rem;
@@ -616,8 +607,7 @@ body {
     align-items: center;
     width: 100%;
     gap: 0.5rem;
-    direction: rtl;
-    /* Ensure RTL for content */
+    direction: rtl; /* Ensure RTL for content */
 }
 
 .feature-card__arrow-circle {
@@ -649,7 +639,7 @@ body {
     color: var(--dark-neutral);
 }
 
-/* Updated positioning for wooden-doors-section__content */
+/* Updated positioning for wooden-doors-section__content (absolute on desktop) */
 .wooden-doors-section__content {
     position: absolute;
     background: linear-gradient(-145deg, rgba(255, 255, 255, 0.1), #ad89428e);
@@ -698,7 +688,7 @@ body {
     width: 100%;
     height: 100vh;
     background-image: url(../img/doors_cleanup-removebg-preview.png);
-    background-size: cover;
+    background-size: cover; /* Ensures image covers the area */
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
@@ -706,7 +696,7 @@ body {
 }
 
 .door-hero__content {
-    margin-top: 15rem;
+    margin-top: 15rem; /* Large margin for desktop */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -747,7 +737,6 @@ body {
 .door-hero__button:hover {
     background-color: var(--gold-darkest);
 }
-
 
 /* ------------------------------------ */
 /* Gallery Section Styles               */
@@ -808,7 +797,7 @@ body {
 .value-card__icon {
     font-size: 2rem;
     color: var(--primary-color);
-    margin-inline-end: 4rem;
+    margin-inline-end: 4rem; /* For RTL */
     flex-shrink: 0;
 }
 
@@ -816,51 +805,12 @@ body {
     width: 2px;
     background-color: var(--primary-color);
     height: 80px;
-    margin-inline-end: 1rem;
-    /* Adjust margin for RTL */
+    margin-inline-end: 1rem; /* Adjust margin for RTL */
 }
 
 .value-card__text {
     font-size: 1.5rem;
     font-weight: 700;
-}
-
-/* Responsive adjustments for Value Cards */
-@media (max-width: 768px) {
-    .value-card {
-        padding: 2rem 0.8rem;
-    }
-
-    .value-card__icon {
-        font-size: 1.8rem;
-    }
-
-    .value-card__text {
-        font-size: 1.3rem;
-    }
-
-    .value-card__divider {
-        height: 60px;
-    }
-}
-
-@media (max-width: 576px) {
-    .value-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
-        padding: 1.5rem 0.5rem;
-    }
-
-    .value-card__icon {
-        margin-inline-end: 0;
-        margin-bottom: 0.5rem;
-    }
-
-    .value-card__divider {
-        display: none;
-        /* Hide divider on very small screens */
-    }
 }
 
 /* ------------------------------------ */
@@ -892,8 +842,7 @@ body {
 
 .location-section__subtitle {
     font-size: 1rem;
-    color: #666;
-    /* Grey for subtitle */
+    color: #666; /* Grey for subtitle */
     margin-bottom: 1.5rem;
 }
 
@@ -922,46 +871,18 @@ body {
 
 .location-section__map-embed {
     width: 100%;
-    height: 30rem;
-    /* Fixed height for map */
+    height: 30rem; /* Fixed height for map */
     overflow: hidden;
     box-shadow: 0 4px 10px var(--shadow-light);
-    border-radius: 8px;
-    /* Match container border-radius */
+    border-radius: 8px; /* Match container border-radius */
 }
 
-/* Responsive adjustments for Location Section */
-@media (max-width: 768px) {
-    .location-section__map-embed {
-        height: 25rem;
-    }
-
-    .location-section__content-box {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .location-section__map-embed {
-        height: 20rem;
-    }
-
-    .location-section__content-box {
-        padding: 1rem;
-    }
-
-    .location-section__title {
-        font-size: 1.3rem;
-    }
-
-    .location-section__subtitle {
-        font-size: 0.9rem;
-    }
-}
-
-/* Footer Section Style */
+/* ------------------------------------ */
+/* Footer Section Style                 */
+/* ------------------------------------ */
 footer {
     background: var(--dark-neutral);
+    color: var(--light-neutral); /* Set base text color for footer */
 }
 footer .subscribeBtn {
     background: var(--primary-color);
@@ -974,10 +895,6 @@ footer .subscribeBtn:hover {
 
 .footerImage img {
     width: 5rem;
-}
-
-footer {
-    color: var(--light-neutral);
 }
 
 footer input {
@@ -994,19 +911,14 @@ footer h5 {
     font-weight: 600;
 }
 
-footer .applications 
-.socialTitle {
+/* Footer applications (social media/app links) */
+footer .applications .socialTitle {
     color: var(--gold-darker);
-    display: none;
+    display: none; /* Hidden by default for larger screens */
     font-size: 1.2rem;
 }
 
-@media (width < 770px) {
-    .socialTitle {
-        display: block;
-    }
-}
-
+/* Social Icon hover effect */
 .social-icon {
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -1018,13 +930,13 @@ footer .applications
 }
 
 .social-icon::after {
-    content: attr(data-title);
+    content: attr(data-title); /* Displays tooltip based on data-title attribute */
     position: absolute;
     bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--PrimaryColor);
-    color: var(--SecondaryColor);
+    background: var(--primary-color); /* Corrected variable name from --PrimaryColor */
+    color: var(--secondary-color); /* Corrected variable name from --SecondaryColor */
     padding: 5px 10px;
     font-size: 0.75rem;
     white-space: nowrap;
@@ -1037,13 +949,12 @@ footer .applications
 
 .social-icon:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
+    transform: translateX(-50%) translateY(-5px); /* Moves up slightly on hover */
 }
 
-/* OurLinks Style */
+/* OurLinks Style (Footer navigation links) */
 .ourLinks a {
     position: relative;
-
 }
 
 .ourLinks a::after {
@@ -1052,22 +963,19 @@ footer .applications
     width: 0;
     background: var(--primary-color);
     bottom: -5px;
-    right: 0;
+    right: 0; /* Underline expands from right for RTL */
     position: absolute;
     transition: .3s ease;
-
 }
 
 .ourLinks a:hover::after {
     width: 100%;
-
 }
 
-/* Customer Service Style */
+/* Customer Service Button Style */
 .customer {
     outline: none;
     border: 2px solid var(--primary-color);
-
 }
 
 .customer:hover {
@@ -1075,7 +983,7 @@ footer .applications
     background: var(--primary-color);
 }
 
-/* Payment Methods Style */
+/* Payment Methods Images Style */
 .payment img {
     background: var(--secondary-color);
     border-radius: 5px;
@@ -1086,6 +994,7 @@ footer .applications
     transform: scale(1.1);
 }
 
+/* Copyrights Text Style */
 .copyRights a {
     font-size: .8rem;
     color: #9e9e9e;
@@ -1095,7 +1004,7 @@ footer .applications
 /* Scroll To Top Button                 */
 /* ------------------------------------ */
 .scroll-to-top {
-    display: none;
+    display: none; /* Hidden by default, will be shown via JS */
     width: 50px;
     height: 50px;
     position: fixed;
@@ -1108,7 +1017,7 @@ footer .applications
     color: var(--secondary-color);
     cursor: pointer;
     border-radius: 5px;
-    display: flex;
+    display: flex; /* Using flex to center icon */
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -1116,7 +1025,7 @@ footer .applications
 
 .scroll-to-top:hover {
     background-color: var(--gold-darker);
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Slight lift on hover */
 }
 
 .scroll-to-top i {
