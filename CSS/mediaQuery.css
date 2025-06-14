@@ -9,7 +9,7 @@
 
 @media (max-width: 768px) {
     header .main-header__logo-link img {
-        max-height: 5rem;
+        max-height: 6rem;
     }
 }
 
@@ -110,7 +110,6 @@
         display: flex !important;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
     }
 
     .services-section__static-grid .service-item {
@@ -137,13 +136,55 @@
 
 @media (max-width: 768px) {
     .service-item img {
-        max-width: 70%;
+        max-width: 80%;
     }
 }
 
 @media (max-width: 480px) {
     .service-item img {
         max-width: 60%;
+    }
+}
+
+
+/* ========== Responsive Adjustments For Feature ========== */
+@media (max-width: 768px) {
+    .feature-card{
+        margin: 0 5px;
+    }
+    .feature-card__icon {
+        font-size: 2.2rem;
+        
+    }
+
+    .feature-card__text {
+        font-size: 1.25rem;
+    }
+
+    .feature-card__arrow-circle {
+        font-size: .7rem;
+    }
+
+    .feature-card {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-card__icon {
+        font-size: 1.8rem;
+    }
+
+    .feature-card__text {
+        font-size: .6rem;
+    }
+
+    .feature-card__arrow-circle {
+        font-size: 0.9rem;
+    }
+
+    .feature-card {
+        padding: 0.6rem;
     }
 }
 
@@ -316,42 +357,6 @@
     }
 }
 
-/* --- Responsive: Value Cards --- */
-@media (max-width: 768px) {
-    .value-card {
-        padding: 2rem 0.8rem;
-    }
-
-    .value-card__icon {
-        font-size: 1.8rem;
-    }
-
-    .value-card__text {
-        font-size: 1.3rem;
-    }
-
-    .value-card__divider {
-        height: 60px;
-    }
-}
-
-@media (max-width: 576px) {
-    .value-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
-        padding: 1.5rem 0.5rem;
-    }
-
-    .value-card__icon {
-        margin-inline-end: 0;
-        margin-bottom: 0.5rem;
-    }
-
-    .value-card__divider {
-        display: none;
-    }
-}
 
 /* --- Responsive: Location Section --- */
 @media (max-width: 768px) {
