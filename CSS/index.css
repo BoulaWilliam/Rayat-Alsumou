@@ -14,6 +14,7 @@
     --primary-color: #c9a664;
     --dark-neutral: #131313;
     --light-neutral: #eff1f1;
+    ;
     --text-dark: #333;
     --text-light: #eee;
     --gold-darker: #b09058;
@@ -31,7 +32,7 @@ a {
     color: var(--secondary-color);
 }
 
-/* Center Utility Class */
+/* Utility Classes */
 .center {
     display: flex;
     justify-content: center;
@@ -44,20 +45,18 @@ body {
     background: var(--light-neutral);
     margin: 0;
     padding: 0;
-    direction: rtl; /* Right-to-Left for Arabic content */
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    direction: rtl;
+    overflow-x: hidden;
 }
 
-/* ------------------------------------ */
-/* Loading Screen Styles                */
-/* ------------------------------------ */
+/* --- Loading Screen Styles --- */
 .loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999; /* Ensures it's on top */
+    z-index: 9999;
     background-color: var(--secondary-color);
     display: flex;
     justify-content: center;
@@ -65,8 +64,8 @@ body {
 }
 
 .loading-screen__logo {
-    width: 100px;
-    animation: pulse 1.5s infinite; /* Pulsing animation for the logo */
+    height: 15rem;
+    animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
@@ -74,23 +73,23 @@ body {
         transform: scale(1);
         opacity: 0.8;
     }
+
     50% {
         transform: scale(1.1);
         opacity: 1;
     }
+
     100% {
         transform: scale(1);
         opacity: 0.8;
     }
 }
 
-/* ------------------------------------ */
-/* Header Section Styles                */
-/* ------------------------------------ */
+/* --- Header Section Styles --- */
 .main-header {
     color: var(--secondary-color);
     background: var(--dark-neutral);
-    padding: 0;
+    padding: 25px 5px;
     margin: 0;
     position: fixed;
     top: 0;
@@ -103,9 +102,11 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
+    position: relative; 
 }
+
 
 .main-header__left-side {
     display: flex;
@@ -125,29 +126,7 @@ body {
     color: var(--primary-color);
 }
 
-.main-header__search-btn {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    transition: color 0.3s ease;
-}
-
-.main-header__search-btn:hover {
-    color: var(--primary-color);
-}
-
-.main-header__logo-link img {
-    max-height: 6rem;
-    width: 100%;
-    display: block;
-}
-
-.main-header__right-side {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
+.main-header__search-btn,
 .main-header__user-btn,
 .main-header__cart-btn {
     cursor: pointer;
@@ -156,27 +135,57 @@ body {
     transition: color 0.3s ease;
 }
 
+.main-header__search-btn:hover,
 .main-header__user-btn:hover,
 .main-header__cart-btn:hover {
     color: var(--primary-color);
+}
+
+.main-header__logo-link {
+    display: flex;
+    justify-content: center;
+}
+.main-header__logo-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+
+.main-header__logo-link img {
+    left: -10%;
+    max-height: 6rem;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.main-header__right-side {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* Side Navigation Menu */
 .side-nav {
     position: fixed;
     top: 0;
-    right: -250px; /* Initially hidden off-screen */
+    right: -250px;
+    /* Initially hidden off-screen */
     width: 250px;
     height: 100%;
     background-color: var(--secondary-color);
     box-shadow: -2px 0 5px var(--shadow-light);
     transition: right 0.3s ease-in-out;
     padding: 2rem 1rem;
-    z-index: 1050; /* Above header but below popups */
+    z-index: 1050;
+    /* Above header but below popups */
 }
 
 .side-nav.open {
-    right: 0; /* Slide in when 'open' class is added */
+    right: 0;
+    /* Slide in when 'open' class is added */
 }
 
 .side-nav__close-btn {
@@ -216,7 +225,8 @@ body {
     content: '';
     position: absolute;
     bottom: -5px;
-    right: 0; /* For RTL underline effect */
+    right: 0;
+    /* For RTL underline effect */
     width: 0%;
     height: 3px;
     background: var(--primary-color);
@@ -228,7 +238,8 @@ body {
 }
 
 .side-nav__link:hover::after {
-    width: 100%; /* Expands on hover */
+    width: 100%;
+    /* Expands on hover */
 }
 
 /* Overlay for Popups (Menu, Login, Search) */
@@ -240,23 +251,29 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    z-index: 1049; /* Below side-nav for menu overlay, above for popups */
-    display: none; /* Hidden by default */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent overlay */
+    z-index: 1049;
+    /* Below side-nav for menu overlay, above for popups */
+    display: none;
+    /* Hidden by default */
     justify-content: center;
     align-items: center;
 }
 
 .login-popup,
 .search-popup {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for popups */
-    z-index: 1060; /* Higher z-index for popups */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Darker overlay for popups */
+    z-index: 1060;
+    /* Higher z-index for popups */
 }
 
 .menu-overlay.show,
 .login-popup.show,
 .search-popup.show {
-    display: flex; /* Show when 'show' class is added */
+    display: flex;
+    /* Show when 'show' class is added */
 }
 
 /* Login Popup */
@@ -334,8 +351,11 @@ body {
     color: red;
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
 }
+
+
 
 /* Search Popup */
 .search-popup__box {
@@ -380,151 +400,113 @@ body {
     color: red;
 }
 
-/* ------------------------------------ */
-/* Hero Section Styles                  */
-/* ------------------------------------ */
+/* --- Hero Section Styles --- */
 .hero-section {
     background-image: url(../img/home_cleanup.png);
     background-position: center;
-    background-size: cover; /* Ensures image covers the area, scaling responsively */
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    margin-top: 8rem; /* Space for fixed header */
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    margin-top: 6rem;
+}
+
+.hero-section .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.homeContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8rem;
+    gap: .5rem;
 }
 
 .hero-section__logo {
-    max-width: 300px;
+    max-width: 280px;
+    width: 100%;
     height: auto;
 }
 
-.hero-section__text {
-    font-size: 4rem;
+.hero-section__heading {
+    font-size: 6rem;
     font-weight: bold;
-    color: var(--secondary-color);
-    padding: 0 1rem;
+    color: #DFC992;
 }
 
-.hero-section__button {
-    padding: 3rem 6rem;
-    color: var(--light-neutral);
-    background-color: var(--primary-color);
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 2rem;
+.hero-section__text {
+    font-size: 5rem;
+    padding: 0;
+    color: var(--secondary-color, #fff);
+}
+
+.homeContent .hero-section__button {
+    padding: .8rem 2.8rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    background-image: linear-gradient(to right, #DFC992, #A78E5C);
+    transition: opacity 0.3s ease;
 }
 
 .hero-section__button:hover {
-    background-color: var(--gold-darker);
+    opacity: 0.85;
 }
 
-/* ------------------------------------ */
-/* About Us Section Styles              */
-/* ------------------------------------ */
+/* --- About Us Section --- */
 .about-us-section {
-    background-image: url(../img/About\ Us_cleanup.png);
-    background-position: center;
-    background-size: cover; /* Ensures image covers the area */
-    background-repeat: no-repeat;
-    width: 100%;
-    padding-top: 2rem;
+    margin: 2rem 0;
 }
 
-.about-us-section__intro {
-    margin-bottom: 3rem;
-}
-
-.about-us-section__content-box {
-    border-radius: 30px;
-    padding: 2rem 3rem;
-    box-shadow: 0 10px 20px var(--shadow-medium);
-    border: 1px solid #ccc;
-    user-select: none;
-    backdrop-filter: blur(6px); /* Blurs content behind */
-}
-
-.about-us-section__title {
-    color: #9c824c;
-    font-size: 2.5rem;
-    font-weight: bold;
+.about-us__main-image {
     text-align: center;
-    margin-bottom: 1.5rem;
+    padding: 0;
+    margin: 0;
 }
 
-.about-us-section__text {
-    color: var(--dark-neutral);
-    font-size: 1.5rem;
-    line-height: 2;
-    text-align: center;
+.about-us__main-image img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Info Cards (Vision & Mission) */
-.info-card {
-    position: relative;
-    margin-top: 1.5rem;
-    border-radius: 30px;
-    padding: 2rem;
-    box-shadow: 0 10px 20px var(--shadow-medium);
-    min-height: 300px;
-    transition: transform 0.3s ease;
-    user-select: none;
-}
-
-.vision {
-    padding-bottom: 4rem;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-}
-
-.info-card__icon-badge {
-    position: absolute;
-    top: -60px;
-    right: 30px;
-    border-radius: 3rem;
-    background-color: var(--primary-color);
-    padding: 30px 50px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 28px;
+.about-us__grid {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 40px;
 }
 
-.info-card__icon-badge i {
-    font-size: 4rem;
-    color: var(--secondary-color);
+.about-us__box {
+    flex: 1 1 45%;
+    max-width: 45%;
+    text-align: center;
 }
 
-.info-card__title {
-    font-weight: 700;
-    color: #9c824c;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    text-align: right;
-    margin-top: 3.5rem;
+
+
+.about-us__box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-.info-card__text {
-    color: var(--text-dark);
-    font-size: 1rem;
-    line-height: 2;
-}
 
-/* ------------------------------------ */
-/* Our Services Section Styles          */
-/* ------------------------------------ */
+
+/* --- Our Services Section Styles --- */
 .services-section {
     text-align: center;
-    padding-top: 2rem;
+    margin-top: 2rem;
 }
 
 .services-section__banner-img {
@@ -542,205 +524,181 @@ body {
     display: block;
     cursor: pointer;
     transition: transform 0.3s ease;
+    object-fit: cover;
+    height: auto;
 }
 
-.service-item img:hover {
-    transform: scale(1.085);
+/* --- Wooden Doors Section Styles --- */
+.wooden-doors-section {
+    text-align: center;
+    background-color: #f9f7f4;
+    overflow: hidden;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
-/* ------------------------------------ */
-/* Wooden Doors Section Styles          */
-/* ------------------------------------ */
-
-/* Styles for the Wooden Cabins Banner section (woodDoorImage) */
+/* Background image area */
 .woodDoorImage {
+    position: relative;
     background-image: url(../img/Wooden_cleanup.png);
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; /* Ensures image covers the area */
     height: 100vh;
-    position: relative;
+    width: 100%;
 }
 
-/* Feature Cards (Design, Execution, Quality, Guarantee) */
-.wooden-doors-section__features-grid {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-.feature-card {
-    background: linear-gradient(145deg, #c1a66a, #eadcbf); /* Gradient for a gold effect */
-    border-radius: 22px;
-    box-shadow: 8px 8px 16px var(--shadow-medium), -4px -4px 10px var(--shadow-card-light);
-    padding: 40px 20px;
-    height: 180px; /* Fixed height for consistency */
-    position: relative;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    display: flex; /* Added flex for alignment */
+/* Content Box Over the Background */
+.wooden-doors-section__content {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    z-index: 2;
+    background: none;
+    max-width: 90%;
+}
+
+.wooden-doors-section__heading {
+    font-size: 5.5rem;
+    color: var(--gold-darker);
+    font-weight: bold;
+}
+
+.wooden-doors-section__description {
+    font-size: 3.5rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.wooden-doors-section__button,
+.door-hero__button {
+    padding: 1.3rem 4rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 10px 15px #131313;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #DFC992, #A78E5C);
+    transition: opacity 0.3s ease;
+}
+
+.wooden-doors-section__button:hover,
+.door-hero__button:hover {
+    opacity: 0.85;
+}
+
+/* Feature Carousel Section */
+#featureCarousel .carousel-inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Feature Item Style to Match Service Items */
+.feature-card {
+    cursor: pointer;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
 
 .feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px var(--shadow-medium);
+    transform: translateY(-5px);
 }
 
 .feature-card__icon {
     font-size: 3rem;
-    color: #666; /* Greyish color for icons */
-    opacity: 0.9;
-    transition: color 0.3s;
-    margin-bottom: 1rem;
+    color: #8B5E3C;
+    margin-bottom: 0.5rem;
+    padding-top: 1rem;
 }
 
-.feature-card:hover .feature-card__icon {
-    color: var(--dark-neutral);
+.feature-card__text {
+    display: block;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .feature-card__bottom-content {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    gap: 0.5rem;
-    direction: rtl; /* Ensure RTL for content */
+    padding-bottom: 1rem;
 }
 
 .feature-card__arrow-circle {
-    width: 42px;
-    height: 42px;
-    background: #666;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary-color);
-    font-size: 14px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+    color: #8B5E3C;
+    font-size: 1.2rem;
 }
 
-.feature-card:hover .feature-card__arrow-circle {
-    background-color: var(--dark-neutral);
-    color: var(--secondary-color);
-}
-
-.feature-card__text {
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: #666;
-    transition: color 0.3s ease;
-}
-
-.feature-card:hover .feature-card__text {
-    color: var(--dark-neutral);
-}
-
-/* Updated positioning for wooden-doors-section__content (absolute on desktop) */
-.wooden-doors-section__content {
-    position: absolute;
-    background: linear-gradient(-145deg, rgba(255, 255, 255, 0.1), #ad89428e);
-    left: 10%;
-    top: 20%;
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 10px;
-}
-
-.wooden-doors-section__heading {
-    font-size: 6rem;
-    color: var(--gold-darkest);
-    margin: 0;
-    line-height: 1;
-}
-
-.wooden-doors-section__description {
-    color: var(--text-dark);
-    font-size: 4rem;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.wooden-doors-section__button {
-    background-color: var(--primary-color);
-    padding: 1.5rem 2.5rem;
-    font-size: 1.5rem;
-    box-shadow: 0 10px 20px var(--shadow-medium);
-    border-radius: 5px;
-    color: var(--secondary-color);
-    transition: background-color 0.3s ease;
-    border: none;
-    font-weight: bold;
-}
-
-.wooden-doors-section__button:hover {
-    background-color: var(--gold-darkest);
-}
-
-/* Wooden Doors Image with Overlay Content */
+/* Door Image At Wooden Section */
 .door-hero {
     position: relative;
     width: 100%;
     height: 100vh;
     background-image: url(../img/doors_cleanup-removebg-preview.png);
-    background-size: cover; /* Ensures image covers the area */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .door-hero__content {
-    margin-top: 15rem; /* Large margin for desktop */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    max-width: 90%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .door-hero__heading {
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--secondary-color);
     margin-bottom: 1rem;
+    text-wrap: balance;
 }
 
 .door-hero__description {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     margin: 1.5rem 0;
     color: var(--text-light);
     background: linear-gradient(145deg, #917e5aac, rgba(255, 255, 255, 0.255));
-    padding: 3rem 4rem;
+    padding: 2rem;
     border-radius: 30px;
     max-width: 800px;
 }
 
-.door-hero__button {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 1.5rem 5rem;
-    margin-top: 1rem;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-}
+/* Removed duplicate .door-hero__button styling as it's defined above */
 
-.door-hero__button:hover {
-    background-color: var(--gold-darkest);
-}
-
-/* ------------------------------------ */
-/* Gallery Section Styles               */
-/* ------------------------------------ */
+/* --- Gallery Section Styles --- */
 .gallery-section {
     text-align: center;
     padding-bottom: 4rem;
@@ -797,7 +755,8 @@ body {
 .value-card__icon {
     font-size: 2rem;
     color: var(--primary-color);
-    margin-inline-end: 4rem; /* For RTL */
+    margin-inline-end: 4rem;
+    /* For RTL */
     flex-shrink: 0;
 }
 
@@ -805,7 +764,8 @@ body {
     width: 2px;
     background-color: var(--primary-color);
     height: 80px;
-    margin-inline-end: 1rem; /* Adjust margin for RTL */
+    margin-inline-end: 1rem;
+    /* Adjust margin for RTL */
 }
 
 .value-card__text {
@@ -813,9 +773,7 @@ body {
     font-weight: 700;
 }
 
-/* ------------------------------------ */
-/* Location Section Styles              */
-/* ------------------------------------ */
+/* --- Location Section Styles --- */
 .location-section {
     text-align: center;
     padding-bottom: 4rem;
@@ -842,7 +800,8 @@ body {
 
 .location-section__subtitle {
     font-size: 1rem;
-    color: #666; /* Grey for subtitle */
+    color: #666;
+    /* Grey for subtitle */
     margin-bottom: 1.5rem;
 }
 
@@ -871,24 +830,30 @@ body {
 
 .location-section__map-embed {
     width: 100%;
-    height: 30rem; /* Fixed height for map */
+    height: 30rem;
+    /* Fixed height for map */
     overflow: hidden;
     box-shadow: 0 4px 10px var(--shadow-light);
-    border-radius: 8px; /* Match container border-radius */
+    border-radius: 8px;
+    /* Match container border-radius */
 }
 
-/* ------------------------------------ */
-/* Footer Section Style                 */
-/* ------------------------------------ */
+/* --- Footer Section Style --- */
 footer {
     background: var(--dark-neutral);
-    color: var(--light-neutral); /* Set base text color for footer */
+    color: var(--light-neutral);
 }
+footer .socialTitle{
+    display: none;
+    color: var(--gold-darker);
+}
+
 footer .subscribeBtn {
     background: var(--primary-color);
     color: var(--light-neutral);
     transition: .2s ease;
 }
+
 footer .subscribeBtn:hover {
     background: var(--gold-darkest);
 }
@@ -898,11 +863,12 @@ footer .subscribeBtn:hover {
 }
 
 footer input {
+    width: 50%;
     background: #333;
 }
 
 footer input:focus {
-    background: var(--gold-darker);
+    border: 2px solid var(--gold-darker);
 }
 
 footer h5 {
@@ -914,7 +880,8 @@ footer h5 {
 /* Footer applications (social media/app links) */
 footer .applications .socialTitle {
     color: var(--gold-darker);
-    display: none; /* Hidden by default for larger screens */
+    display: none;
+    /* Hidden by default for larger screens */
     font-size: 1.2rem;
 }
 
@@ -930,13 +897,14 @@ footer .applications .socialTitle {
 }
 
 .social-icon::after {
-    content: attr(data-title); /* Displays tooltip based on data-title attribute */
+    content: attr(data-title);
+    /* Displays tooltip based on data-title attribute */
     position: absolute;
     bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary-color); /* Corrected variable name from --PrimaryColor */
-    color: var(--secondary-color); /* Corrected variable name from --SecondaryColor */
+    background: var(--primary-color);
+    color: var(--secondary-color);
     padding: 5px 10px;
     font-size: 0.75rem;
     white-space: nowrap;
@@ -949,23 +917,18 @@ footer .applications .socialTitle {
 
 .social-icon:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(-5px); /* Moves up slightly on hover */
+    transform: translateX(-50%) translateY(-5px);
+    /* Moves up slightly on hover */
 }
 
 /* OurLinks Style (Footer navigation links) */
 .ourLinks a {
-    position: relative;
+    color: var(--light-neutral);
+    transition: .3s ease;
 }
 
-.ourLinks a::after {
-    content: '';
-    height: 1px;
-    width: 0;
-    background: var(--primary-color);
-    bottom: -5px;
-    right: 0; /* Underline expands from right for RTL */
-    position: absolute;
-    transition: .3s ease;
+.ourLinks a:hover {
+    color: var(--gold-darker);
 }
 
 .ourLinks a:hover::after {
@@ -974,13 +937,17 @@ footer .applications .socialTitle {
 
 /* Customer Service Button Style */
 .customer {
+    padding: 6px 8px;
+    font-size: .9rem;
+    background: #333;
     outline: none;
-    border: 2px solid var(--primary-color);
+    border: none;
+    transition: .3s ease;
 }
 
 .customer:hover {
-    border: 2px solid var(--primary-color);
-    background: var(--primary-color);
+    background: #333;
+    color: var(--primary-color);
 }
 
 /* Payment Methods Images Style */
@@ -1000,11 +967,10 @@ footer .applications .socialTitle {
     color: #9e9e9e;
 }
 
-/* ------------------------------------ */
-/* Scroll To Top Button                 */
-/* ------------------------------------ */
+/* --- Scroll To Top Button --- */
 .scroll-to-top {
-    display: none; /* Hidden by default, will be shown via JS */
+    display: flex;
+    /* Changed from none to flex as it's shown via JS later */
     width: 50px;
     height: 50px;
     position: fixed;
@@ -1017,7 +983,6 @@ footer .applications .socialTitle {
     color: var(--secondary-color);
     cursor: pointer;
     border-radius: 5px;
-    display: flex; /* Using flex to center icon */
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -1025,7 +990,8 @@ footer .applications .socialTitle {
 
 .scroll-to-top:hover {
     background-color: var(--gold-darker);
-    transform: translateY(-3px); /* Slight lift on hover */
+    transform: translateY(-3px);
+    /* Slight lift on hover */
 }
 
 .scroll-to-top i {
