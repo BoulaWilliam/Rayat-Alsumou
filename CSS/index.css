@@ -100,19 +100,6 @@ body {
     opacity: 1;
     visibility: visible;
 }
-.main-header.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-/* Smooth transition for header */
-#mainHeader {
-    transition: background-color 0.5s ease, opacity 0.5s ease;
-}
-
-/* Transparent black background */
-#mainHeader.nav-visible {
-    background-color: rgba(0, 0, 0, 0.85); /* black with 50% opacity */
-}
 
 
 
