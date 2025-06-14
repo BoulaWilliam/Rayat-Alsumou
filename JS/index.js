@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.querySelector('.main-header');
     let lastNavbarVisible = true;
 
-
-    // --- Page Load: hide loading screen and show main header ---
+    // ===== Page Load =====
     window.addEventListener('load', function () {
         if (loadingScreen) {
             loadingScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
@@ -23,11 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
         controlResponsiveCarousels();
     });
 
-    // --- Scroll Event Handling ---
+    // ===== Scroll Events =====
     window.addEventListener('scroll', function () {
         const scrollY = window.scrollY;
 
-        // Show/hide scroll to top button
         if (scrollToTopBtn) {
             scrollToTopBtn.style.display = scrollY > 300 ? 'flex' : 'none';
         }
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!lastNavbarVisible) {
                     navbar.classList.remove('hidden');
 
-                    // Fade-in logo
                     if (logo) {
                         logo.style.opacity = '0';
                         setTimeout(() => {
@@ -51,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     lastNavbarVisible = true;
                 }
 
-                // Add or remove background color on scroll
                 if (scrollY > 950) {
                     navbar.classList.add('main-header--scrolled', 'nav-visible');
                 } else {
@@ -61,14 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // --- Scroll to top click ---
+    // ===== Scroll to top =====
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // --- Responsive Carousel Setup ---
+    // ===== Responsive Carousel =====
     window.addEventListener('resize', controlResponsiveCarousels);
 
     function controlResponsiveCarousels() {
@@ -118,6 +114,57 @@ document.addEventListener('DOMContentLoaded', function () {
             element.classList.remove('carousel-initialized');
         }
     }
-});
 
-// ---
+    // ===== Header Interaction Functions =====
+
+    window.toggleMenu = function () {
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('overlay');
+        if (menu && overlay) {
+            menu.classList.toggle('open');
+            overlay.classList.toggle('show');
+        }
+    };
+
+    window.toggleSearch = function () {
+        const searchOverlay = document.getElementById('searchOverlay');
+        if (searchOverlay) {
+            searchOverlay.classList.toggle('show');
+        }
+    };
+
+    window.toggleLogin = function () {
+        const loginOverlay = document.getElementById('loginOverlay');
+        if (loginOverlay) {
+            loginOverlay.classList.toggle('show');
+        }
+    };
+
+    window.validateLogin = function () {
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        let isValid = true;
+
+        if (!email) {
+            emailError.style.display = 'block';
+            isValid = false;
+        } else {
+            emailError.style.display = 'none';
+        }
+
+        if (!password) {
+            passwordError.style.display = 'block';
+            isValid = false;
+        } else {
+            passwordError.style.display = 'none';
+        }
+
+        if (isValid) {
+            alert('تم تسجيل الدخول بنجاح');
+            toggleLogin(); // Close the login popup
+        }
+    };
+});
