@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.querySelector('.main-header');
     let lastNavbarVisible = true;
 
-    // Prepare logo for fade-in effect
-    if (logo) logo.style.transition = 'opacity 0.6s ease';
 
     // --- Page Load: hide loading screen and show main header ---
     window.addEventListener('load', function () {
@@ -29,21 +27,20 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         const scrollY = window.scrollY;
 
-        // Scroll-to-top button visibility
+        // Show/hide scroll to top button
         if (scrollToTopBtn) {
             scrollToTopBtn.style.display = scrollY > 300 ? 'flex' : 'none';
         }
 
-        // Navbar hide/show and logo animation
         if (navbar) {
             if (scrollY > 250 && scrollY < 949) {
-                navbar.style.display = "none";
+                navbar.classList.add('hidden');
                 lastNavbarVisible = false;
             } else {
                 if (!lastNavbarVisible) {
-                    navbar.style.display = "block";
+                    navbar.classList.remove('hidden');
 
-                    // Fade-in logo when nav reappears
+                    // Fade-in logo
                     if (logo) {
                         logo.style.opacity = '0';
                         setTimeout(() => {
@@ -54,11 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     lastNavbarVisible = true;
                 }
 
-                // Add/remove scrolled class
+                // Add or remove background color on scroll
                 if (scrollY > 950) {
-                    navbar.classList.add('main-header--scrolled');
-                } else if (scrollY < 250) {
-                    navbar.classList.remove('main-header--scrolled');
+                    navbar.classList.add('main-header--scrolled', 'nav-visible');
+                } else {
+                    navbar.classList.remove('main-header--scrolled', 'nav-visible');
                 }
             }
         }
@@ -123,50 +120,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// --- Menu Toggle ---
-function toggleMenu() {
-    document.getElementById('menu')?.classList.toggle('open');
-    document.getElementById('overlay')?.classList.toggle('show');
-}
-
-// --- Login Toggle ---
-function toggleLogin() {
-    document.getElementById('loginOverlay')?.classList.toggle('show');
-}
-
-// --- Search Toggle ---
-function toggleSearch() {
-    document.getElementById('searchOverlay')?.classList.toggle('show');
-}
-
-// --- Login Validation ---
-function validateLogin() {
-    const emailInput = document.getElementById('loginEmail');
-    const passwordInput = document.getElementById('loginPassword');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-
-    const email = emailInput?.value.trim();
-    const password = passwordInput?.value.trim();
-
-    let valid = true;
-
-    if (!email) {
-        if (emailError) emailError.style.display = 'block';
-        valid = false;
-    } else {
-        if (emailError) emailError.style.display = 'none';
-    }
-
-    if (!password) {
-        if (passwordError) passwordError.style.display = 'block';
-        valid = false;
-    } else {
-        if (passwordError) passwordError.style.display = 'none';
-    }
-
-    if (valid) {
-        console.log("Login form is valid. Attempting to log in...");
-        toggleLogin();
-    }
-}
+// ---
