@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.querySelector('.main-header');
     let lastNavbarVisible = true;
 
-    // ===== Page Load =====
+    // Prepare logo for fade-in effect
+    if (logo) logo.style.transition = 'opacity 0.6s ease';
+
+    // --- Page Load: hide loading screen and show main header ---
     window.addEventListener('load', function () {
         if (loadingScreen) {
             loadingScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
@@ -22,22 +25,25 @@ document.addEventListener('DOMContentLoaded', function () {
         controlResponsiveCarousels();
     });
 
-    // ===== Scroll Events =====
+    // --- Scroll Event Handling ---
     window.addEventListener('scroll', function () {
         const scrollY = window.scrollY;
 
+        // Scroll-to-top button visibility
         if (scrollToTopBtn) {
             scrollToTopBtn.style.display = scrollY > 300 ? 'flex' : 'none';
         }
 
+        // Navbar hide/show and logo animation
         if (navbar) {
             if (scrollY > 250 && scrollY < 949) {
-                navbar.classList.add('hidden');
+                navbar.style.display = "none";
                 lastNavbarVisible = false;
             } else {
                 if (!lastNavbarVisible) {
-                    navbar.classList.remove('hidden');
+                    navbar.style.display = "block";
 
+                    // Fade-in logo when nav reappears
                     if (logo) {
                         logo.style.opacity = '0';
                         setTimeout(() => {
@@ -48,23 +54,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     lastNavbarVisible = true;
                 }
 
+                // Add/remove scrolled class
                 if (scrollY > 950) {
-                    navbar.classList.add('main-header--scrolled', 'nav-visible');
-                } else {
-                    navbar.classList.remove('main-header--scrolled', 'nav-visible');
+                    navbar.classList.add('main-header--scrolled');
+                } else if (scrollY < 250) {
+                    navbar.classList.remove('main-header--scrolled');
                 }
             }
         }
     });
 
-    // ===== Scroll to top =====
+    // --- Scroll to top click ---
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // ===== Responsive Carousel =====
+    // --- Responsive Carousel Setup ---
     window.addEventListener('resize', controlResponsiveCarousels);
 
     function controlResponsiveCarousels() {
@@ -114,57 +121,52 @@ document.addEventListener('DOMContentLoaded', function () {
             element.classList.remove('carousel-initialized');
         }
     }
-
-    // ===== Header Interaction Functions =====
-
-    window.toggleMenu = function () {
-        const menu = document.getElementById('menu');
-        const overlay = document.getElementById('overlay');
-        if (menu && overlay) {
-            menu.classList.toggle('open');
-            overlay.classList.toggle('show');
-        }
-    };
-
-    window.toggleSearch = function () {
-        const searchOverlay = document.getElementById('searchOverlay');
-        if (searchOverlay) {
-            searchOverlay.classList.toggle('show');
-        }
-    };
-
-    window.toggleLogin = function () {
-        const loginOverlay = document.getElementById('loginOverlay');
-        if (loginOverlay) {
-            loginOverlay.classList.toggle('show');
-        }
-    };
-
-    window.validateLogin = function () {
-        const email = document.getElementById('loginEmail').value.trim();
-        const password = document.getElementById('loginPassword').value.trim();
-        const emailError = document.getElementById('emailError');
-        const passwordError = document.getElementById('passwordError');
-
-        let isValid = true;
-
-        if (!email) {
-            emailError.style.display = 'block';
-            isValid = false;
-        } else {
-            emailError.style.display = 'none';
-        }
-
-        if (!password) {
-            passwordError.style.display = 'block';
-            isValid = false;
-        } else {
-            passwordError.style.display = 'none';
-        }
-
-        if (isValid) {
-            alert('تم تسجيل الدخول بنجاح');
-            toggleLogin(); // Close the login popup
-        }
-    };
 });
+
+// --- Menu Toggle ---
+function toggleMenu() {
+    document.getElementById('menu')?.classList.toggle('open');
+    document.getElementById('overlay')?.classList.toggle('show');
+}
+
+// --- Login Toggle ---
+function toggleLogin() {
+    document.getElementById('loginOverlay')?.classList.toggle('show');
+}
+
+// --- Search Toggle ---
+function toggleSearch() {
+    document.getElementById('searchOverlay')?.classList.toggle('show');
+}
+
+// --- Login Validation ---
+function validateLogin() {
+    const emailInput = document.getElementById('loginEmail');
+    const passwordInput = document.getElementById('loginPassword');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    const email = emailInput?.value.trim();
+    const password = passwordInput?.value.trim();
+
+    let valid = true;
+
+    if (!email) {
+        if (emailError) emailError.style.display = 'block';
+        valid = false;
+    } else {
+        if (emailError) emailError.style.display = 'none';
+    }
+
+    if (!password) {
+        if (passwordError) passwordError.style.display = 'block';
+        valid = false;
+    } else {
+        if (passwordError) passwordError.style.display = 'none';
+    }
+
+    if (valid) {
+        console.log("Login form is valid. Attempting to log in...");
+        toggleLogin();
+    }
+}
